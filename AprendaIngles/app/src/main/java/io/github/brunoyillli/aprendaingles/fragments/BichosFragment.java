@@ -34,7 +34,7 @@ public class BichosFragment extends Fragment implements View.OnClickListener{
         buttonLeao = view.findViewById(R.id.buttonLeao);
         buttonMacaco = view.findViewById(R.id.buttonMacaco);
         buttonOvelha = view.findViewById(R.id.buttonOvelha);
-        buttonVaca = view.findViewById(R.id.buttonOvelha);
+        buttonVaca = view.findViewById(R.id.buttonVaca);
 
         buttonCao.setOnClickListener(this);
         buttonGato.setOnClickListener(this);
@@ -85,6 +85,15 @@ public class BichosFragment extends Fragment implements View.OnClickListener{
                     mediaPlayer.release();
                 }
             });
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
     }
 }
